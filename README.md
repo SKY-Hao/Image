@@ -1,4 +1,4 @@
-#Sqoop使用文档
+# Sqoop使用文档
 
 ##	1.Sqoop简介
 	Sqoop用于Hadoop和关系数据库或者大型机之间数据传输的工具。可以使用Sqoop将数据从关系数据库（MYSQL、Oracle）导入至Hadoop（HDFS）中，转换为HadoopMapReduce中的数据。
@@ -20,7 +20,7 @@
 ## 4.Soop-import
 ### 4.1 sqoop-import将单个表导入HDFS。
 #### 4.1.2常见参数		
-		表中的每一行都表示为HDFS中的单独记录。记录可以存储为文本文件(每行一个记录)。
+	表中的每一行都表示为HDFS中的单独记录。记录可以存储为文本文件(每行一个记录)。
 
 
 | 语法    | 参数    |
@@ -45,7 +45,7 @@
 `sqoop import --connect jdbc:mysql://192.168.1.194:3306/test
    --username root --password root`
 
-		此链接是连接192.168.1.194主机上MySQL数据库test，用户为root，密码为root。如果你打算使用Sqoop与分布式Hadoop集群。您提供的连接字符串将用于整个MapReduce集群中的TaskTracker节点; 如果指定文字名称localhost，则每个节点将连接到不同的数据库（或者更可能是根本没有数据库）。相反，您应该使用所有远程节点都可以看到的数据库主机的完整主机名或IP地址。
+	此链接是连接192.168.1.194主机上MySQL数据库test，用户为root，密码为root。如果你打算使用Sqoop与分布式Hadoop集群。您提供的连接字符串将用于整个MapReduce集群中的TaskTracker节点; 如果指定文字名称localhost，则每个节点将连接到不同的数据库（或者更可能是根本没有数据库）。相反，您应该使用所有远程节点都可以看到的数据库主机的完整主机名或IP地址。
 
 ### 4.2将数据导入至Hive中
 #### 4.2.1Hive参数
@@ -109,12 +109,12 @@
 ![表中数据](./SqoopImage/表中数据.png)
 
 ### 测试mysql连接
-		·查看mysql的数据库
-		sqoop list-databases  --connect jdbc:mysql://192.168.1.194:3306 --username root --password root		
+	·查看mysql的数据库
+	sqoop list-databases  --connect jdbc:mysql://192.168.1.194:3306 --username root --password root		
 ![查库](./SqoopImage/查库.png)
 
-		·查看mysql其中一个库中的表
-			sqoop list-tables --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root
+	·查看mysql其中一个库中的表
+	sqoop list-tables --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root
 				
 ![查表](./SqoopImage/查表.png)
 
@@ -127,18 +127,18 @@
 
 	·创建hive库和表
 	
-			create database test;
-			show databases;
-			ues test;
+		create database test;
+		show databases;
+		ues test;
 			
 	·创建表并指定hdfs存放路径'/user/hive/warehouse/test.db'
-			create table IF NOT EXISTS T_USER(
-				  id      BIGINT COMMENT 'id',
-				  name      STRING COMMENT 'name',
-				  password      STRING COMMENT 'password'
-				) COMMENT 'T_USER'
-				ROW format delimited fields terminated BY '\001' 
-				LOCATION '/user/hive/warehouse/test.db';
+		create table IF NOT EXISTS T_USER(
+			  id      BIGINT COMMENT 'id',
+			  name      STRING COMMENT 'name',
+			  password      STRING COMMENT 'password'
+			) COMMENT 'T_USER'
+			ROW format delimited fields terminated BY '\001' 
+			LOCATION '/user/hive/warehouse/test.db';
 			
 	  ·default库为系统默认的数据库;test为所创建的数据库。
 
@@ -147,7 +147,7 @@
 ![创建的表字段](./SqoopImage/创建的表字段.png)
 			
 	·Sqoop从MySQL导入数据进入Hive		
-			sqoop import -m 1 --connect jdbc:mysql://192.168.1.194:3306/test --username  root --password root --table t_user --hive-import --hive-overwrite --hive-table hivetest.t_user --hive-drop-import-delims
+		sqoop import -m 1 --connect jdbc:mysql://192.168.1.194:3306/test --username  root --password root --table t_user --hive-import --hive-overwrite --hive-table hivetest.t_user --hive-drop-import-delims
 			
 ![导入数据信息显示](./SqoopImage/导入数据信息显示.png)
 
