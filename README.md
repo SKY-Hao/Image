@@ -47,29 +47,7 @@
    
    	此链接是连接192.168.1.194主机上MySQL数据库test，用户为root，密码为root。如果使用Sqoop与分布式Hadoop集群。您提供的连接字符串将用于整个MapReduce集群中的TaskTracker节点; 如果指定文字名称localhost，则每个节点将连接到不同的数据库（或者更可能是根本没有数据库）。相反，您应该使用所有远程节点都可以看到的数据库主机的完整主机名或IP地址。
 	
-   或者
-   
-  `sqoop import --connect jdbc:mysql://<dburi>/<dbname> --username <username> --password <password> --table <tablename> --check-column <col> --incremental <mode> --last-value <value> --target-dir <hdfs-dir>`
-	
-	参数说明：
-
-	dburi：数据库的访问连接，例如： jdbc:mysql://192.168.1.124:3306/ 如果您的访问连接中含有参数,那么请用单引号将整个连接包裹住，例如’jdbc:mysql://192.168.1.124:3306/mydatabase?useUnicode=true’
-
-	dbname：数据库的名字，例如：user。
-
-	username：数据库登录用户名。
-
-	password：用户对应的密码。
-
-	tablename：MySQL 表的名字。
-
-	col：要检查的列的名称。
-
-	mode：该模式决定Sqoop如何定义哪些行为新的行。取值为append或lastmodified。
-
-	value：前一个导入中检查列的最大值。
-
-	hdfs-dir：HDFS 的写入目录，例如：/user/hive/result。
+  
 
 ### 4.2将数据导入至Hive中
 #### 4.2.1Hive参数
@@ -94,6 +72,30 @@
 	如果hive中标已经存在，则可以指定-hive-overwrite替换已经存在的表，将数据导入HDFS，sqoop生成hive脚本，包含create table使用hive类型定义列的操作，以及一个LOAD DATA INPATH 将数据文件移动到Hive仓库目录的语句。
 	该脚本通过CRH--sqoop调用已安装的配置单元执行，如果集群或者单节点有多个hive，则可以指定hive版本进行操作
 `$PATH  --hive-home 选项来识别Hive安装目录及版本 Sqoop $HIVE_HOME/bin/hive`
+
+ 或者
+   
+  `sqoop import --connect jdbc:mysql://<dburi>/<dbname> --username <username> --password <password> --table <tablename> --check-column <col> --incremental <mode> --last-value <value> --target-dir <hdfs-dir>`
+	
+	参数说明：
+
+	dburi：数据库的访问连接，例如： jdbc:mysql://192.168.1.124:3306/ 如果您的访问连接中含有参数,那么请用单引号将整个连接包裹住，例如’jdbc:mysql://192.168.1.124:3306/mydatabase?useUnicode=true’
+
+	dbname：数据库的名字，例如：user。
+
+	username：数据库登录用户名。
+
+	password：用户对应的密码。
+
+	tablename：MySQL 表的名字。
+
+	col：要检查的列的名称。
+
+	mode：该模式决定Sqoop如何定义哪些行为新的行。取值为append或lastmodified。
+
+	value：前一个导入中检查列的最大值。
+
+	hdfs-dir：HDFS 的写入目录，例如：/user/hive/result。
 
 ### 4.3将数据导入至Hbase中
 #### 4.3.1Hbase参数
