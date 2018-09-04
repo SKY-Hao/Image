@@ -44,7 +44,8 @@
 
 `sqoop import --connect jdbc:mysql://192.168.1.194:3306/test
    --username root --password root`
-   此链接是连接192.168.1.194主机上MySQL数据库test，用户为root，密码为root。如果你打算使用Sqoop与分布式Hadoop集群。您提供的连接字符串将用于整个MapReduce集群中的TaskTracker节点; 如果指定文字名称localhost，则每个节点将连接到不同的数据库（或者更可能是根本没有数据库）。相反，您应该使用所有远程节点都可以看到的数据库主机的完整主机名或IP地址。
+   
+   	此链接是连接192.168.1.194主机上MySQL数据库test，用户为root，密码为root。如果使用Sqoop与分布式Hadoop集群。您提供的连接字符串将用于整个MapReduce集群中的TaskTracker节点; 如果指定文字名称localhost，则每个节点将连接到不同的数据库（或者更可能是根本没有数据库）。相反，您应该使用所有远程节点都可以看到的数据库主机的完整主机名或IP地址。
    或者
   `sqoop import --connect jdbc:mysql://<dburi>/<dbname> --username <username> --password <password> --table <tablename> --check-column <col> --incremental <mode> --last-value <value> --target-dir <hdfs-dir>`
 	
