@@ -142,7 +142,7 @@
 			
 	  ·default库为系统默认的数据库;test为所创建的数据库。
 
-![查看库](./SqoopImage./SqoopImage/查库库.png)		
+![查看库](./SqoopImage/查库库.png)		
 
 ![创建的表字段](./SqoopImage/创建的表字段.png)
 			
