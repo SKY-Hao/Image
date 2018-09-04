@@ -15,7 +15,7 @@
 
 ## 3. sqoop命令
 
-![操作命令帮助](./images/1536029186754.png)
+![操作命令帮助](./SqoopImage/操作命令帮助.png)
 
 ## 4.Soop-import
 ### 4.1 sqoop-import将单个表导入HDFS。
@@ -104,26 +104,26 @@
 			连接IP：192.168.1.194:3306
 			测试库：test
 			测试表：test
-![数据库和表名](./images/1536035257022.png)
+![数据库和表名](./SqoopImage/数据库和表名.png)
 
-![表中数据](./images/1536035342110.png)
+![表中数据](./SqoopImage/表中数据.png)
 
 ### 测试mysql连接
 		·查看mysql的数据库
 				sqoop list-databases  --connect jdbc:mysql://192.168.1.194:3306 --username root --password root		
-![查库](./images/1536046578616.png)
+![查库](./SqoopImage/查库.png)
 
 		·查看mysql其中一个库中的表
 				sqoop list-tables --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root
 				
-![查表](./images/1536046814264.png)
+![查表](./SqoopImage/查表.png)
 
 ### 		Sqoop导入Mysql数据到Hive
 
 	·切换为hive用户
 			su hive
 			hive
-![切换hive用户并进入hive](./images/1536047047029.png)
+![切换hive用户并进入hive](./SqoopImage/切换hive用户并进入hive.png)
 
 	·创建hive库和表
 	
@@ -142,19 +142,19 @@
 			
 	  ·default库为系统默认的数据库;test为所创建的数据库。
 
-![查看库](./images/1536047194915.png)		
+![查看库](./SqoopImage./SqoopImage/查库库.png)		
 
-![创建的表字段](./images/1536047444870.png)
+![创建的表字段](./SqoopImage/创建的表字段.png)
 			
 	·Sqoop从MySQL导入数据进入Hive		
 			sqoop import -m 1 --connect jdbc:mysql://192.168.1.194:3306/test --username  root --password root --table t_user --hive-import --hive-overwrite --hive-table hivetest.t_user --hive-drop-import-delims
 			
-![导入数据信息显示](./images/1536047859282.png)
+![导入数据信息显示](./SqoopImage/导入数据信息显示.png)
 
-![导入成功](./images/1536048225569.png)
+![导入成功](./SqoopImage/导入成功.png)
 	
 	·进入hive查询test库下的t_user表
 	select * from t_user;
-![et_user表](./images/1536048341735.png)
+![t_user表](./SqoopImage/t_user表.png)
 
 至此，Sqoop从MySQL导数据进入Hive完成。
