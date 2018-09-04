@@ -38,12 +38,12 @@
 |  --connection-param-file <filename>	 |    提供连接参数的可选属性文件   |
 |  --relaxed-isolation   | 将连接事务隔离设置为读取未提交的映射器。
     
-#### 4.1.2  连接数据库
+#### 4.1.3  连接数据库
 
        Sqoop旨在将数据库中的表导入HDFS。为此，您必须指定一个描述如何连接到数据库的连接字符串。该连接字符串是类似于URL，并连通到到Sqoop --connect说法。这描述了要连接的服务器和数据库; 它也可以指定端口。例如：
 
-==sqoop import --connect jdbc:mysql://192.168.1.194:3306/test
-   --username root --password root==
+`sqoop import --connect jdbc:mysql://192.168.1.194:3306/test
+   --username root --password root`
 
 		此链接是连接192.168.1.194主机上MySQL数据库test，用户为root，密码为root。如果你打算使用Sqoop与分布式Hadoop集群。您提供的连接字符串将用于整个MapReduce集群中的TaskTracker节点; 如果指定文字名称localhost，则每个节点将连接到不同的数据库（或者更可能是根本没有数据库）。相反，您应该使用所有远程节点都可以看到的数据库主机的完整主机名或IP地址。
 
@@ -69,10 +69,10 @@
 	Sqoop主要功能是将数据传入HDFS中。如果有一个与HDFS集群关联的Hive Metastore，Sqoop还可以通过生成并执行CREATE TABLE语句来将数据导入Hive，以在Hive中定义数据的使用。（-hive-import）
 	如果hive中标已经存在，则可以指定-hive-overwrite替换已经存在的表，将数据导入HDFS，sqoop生成hive脚本，包含create table使用hive类型定义列的操作，以及一个LOAD DATA INPATH 将数据文件移动到Hive仓库目录的语句。
 	该脚本通过CRH--sqoop调用已安装的配置单元执行，如果集群或者单节点有多个hive，则可以指定hive版本进行操作
-==$PATH  --hive-home 选项来识别Hive安装目录及版本 Sqoop $HIVE_HOME/bin/hive==
+`$PATH  --hive-home 选项来识别Hive安装目录及版本 Sqoop $HIVE_HOME/bin/hive`
 
-### 4.5将数据导入至Hbase中
-#### 4.5.1Hbase参数
+### 4.3将数据导入至Hbase中
+#### 4.3.1Hbase参数
 
 
 | 参数    | 描述    |
@@ -82,14 +82,14 @@
 |   --hbase-table <table-name>  | 指定表，而不是HDFS的HBase表    |
 |  --hbase-bulkload   | 启动批量加载    |
 
-#### 4.5.2数据导入至Hbase
+#### 4.3.2数据导入至Hbase
 	Sqoop支持除HDFS和Hive之外的其他导入目标。Sqoop也可以将记录导入HBase中的表：
 	
 	 通过指定--hbase-table，Sqoop导入HBase中的表而不是HDFS中的目录。Sqoop会将数据导入到指定为参数的表中--hbase-table。输入表的每一行将转换为HBase Put操作到输出表的一行。每行的键取自输入的一列。默认情况下，Sqoop将使用拆分列作为行键列。如果未指定，则会识别源表的主键列(前提有源表);也可以手动指定行键列--hbase-row-key。每个输出列将放在同一列组中，必须使用该列组指定--column-family；语句：
-==sqoop import  --connect jdbc:mysql://192.168.1.194/test --username root --password root --query "SELECT * FROM t_user" 
+`sqoop import  --connect jdbc:mysql://192.168.1.194/test --username root --password root --query "SELECT * FROM t_user" 
 --hbase-table test --hbase-create-table  
 --hbase-row-key id --split-by date -m 7 
---column-family password==
+--column-family password`
 
 
 
@@ -99,26 +99,26 @@
 ### MySQL信息
 	·mysql为我本地MySQL，如果需要linux下MySQL，则部署安装即可。
 	·本地MySQL信息如下
-			用户：root
-			密码：root
-			连接IP：192.168.1.194:3306
-			测试库：test
-			测试表：test
+		用户：root
+		密码：root
+		连接IP：192.168.1.194:3306
+		测试库：test
+		测试表：test
 ![数据库和表名](./SqoopImage/数据库和表名.png)
 
 ![表中数据](./SqoopImage/表中数据.png)
 
 ### 测试mysql连接
 		·查看mysql的数据库
-				sqoop list-databases  --connect jdbc:mysql://192.168.1.194:3306 --username root --password root		
+		sqoop list-databases  --connect jdbc:mysql://192.168.1.194:3306 --username root --password root		
 ![查库](./SqoopImage/查库.png)
 
 		·查看mysql其中一个库中的表
-				sqoop list-tables --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root
+			sqoop list-tables --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root
 				
 ![查表](./SqoopImage/查表.png)
 
-### 		Sqoop导入Mysql数据到Hive
+### 	Sqoop导入Mysql数据到Hive
 
 	·切换为hive用户
 			su hive
