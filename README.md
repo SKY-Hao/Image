@@ -134,7 +134,7 @@
 ### 测试mysql连接
 	查看mysql的数据库
 	sqoop list-databases  --connect jdbc:mysql://192.168.1.194:3306 --username root --password root		
-![查库](./SqoopImage/查库.png)
+![查库](https://raw.githubusercontent.com/SKY-Hao/Image/master/SqoopImage/%E6%9F%A5%E5%BA%93.png)
 
 	查看mysql其中一个库中的表
 	sqoop list-tables --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root
