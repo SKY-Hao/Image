@@ -5,10 +5,9 @@
 	
 	Sqoop自动执行此过程的大部分过程，依靠数据库来描述要导入的数据的模式。Sqoop使用MapReduce导入和导出数据，提供并行操作和容错。
 	
-## 2.Sqoop安装条件
-	1.必须安装配置Hadoop版本。Sqoop目前支持的Hadoop版本version0.20/0.23/1.0/2.0这个四个版本。
-	2.如果从MySQL或者Oracle中导数据需要安装MySQL和Oracle driver。
-	3.解压下载后的jar包放入sqoop目录下的lib下
+## 2.Sqoop须知
+	1.如果从MySQL或者Oracle中导数据需要安装MySQL和Oracle driver。
+	2.解压下载后的jar包放入sqoop目录下的lib下
 	
 ![lib下jar包](./SqoopImage/lib下jar包.png)
 	
@@ -123,8 +122,8 @@
 
 ## 5.sqoop操作(以mysql为例)
 ### MySQL信息
-	·mysql为我本地MySQL，如果需要linux下MySQL，则部署安装即可。
-	·本地MySQL信息如下
+	mysql为我本地MySQL，如果需要linux下MySQL，则部署安装即可。
+	本地MySQL信息如下
 		用户：root
 		密码：root
 		连接IP：192.168.1.194:3306
@@ -135,29 +134,29 @@
 ![表中数据](./SqoopImage/表中数据.png)
 
 ### 测试mysql连接
-	·查看mysql的数据库
+	查看mysql的数据库
 	sqoop list-databases  --connect jdbc:mysql://192.168.1.194:3306 --username root --password root		
 ![查库](./SqoopImage/查库.png)
 
-	·查看mysql其中一个库中的表
+	查看mysql其中一个库中的表
 	sqoop list-tables --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root
 				
 ![查表](./SqoopImage/查表.png)
 
 ### 	Sqoop导入Mysql数据到Hive
 
-	·切换为hive用户
-			su hive
-			hive
+	切换为hive用户
+		su hive
+		hive
 ![切换hive用户并进入hive](./SqoopImage/切换hive用户并进入hive.png)
 
-	·创建hive库和表
+	创建hive库和表
 	
 		create database test;
 		show databases;
 		ues test;
 			
-	·创建表并指定hdfs存放路径'/user/hive/warehouse/test.db'
+	创建表并指定hdfs存放路径'/user/hive/warehouse/test.db'
 		create table IF NOT EXISTS T_USER(
 			  id      BIGINT COMMENT 'id',
 			  name      STRING COMMENT 'name',
@@ -166,20 +165,20 @@
 			ROW format delimited fields terminated BY '\001' 
 			LOCATION '/user/hive/warehouse/test.db';
 			
-	  ·default库为系统默认的数据库;test为所创建的数据库。
+	  default库为系统默认的数据库;test为所创建的数据库。
 
 ![查看库](./SqoopImage/查库库.png)		
 
 ![创建的表字段](./SqoopImage/创建的表字段.png)
 			
-	·Sqoop从MySQL导入数据进入Hive		
-		sqoop import -m 1 --connect jdbc:mysql://192.168.1.194:3306/test --username  root --password root --table t_user --hive-import --hive-overwrite --hive-table hivetest.t_user --hive-drop-import-delims
+	Sqoop从MySQL导入数据进入Hive		
+	sqoop import -m 1 --connect jdbc:mysql://192.168.1.194:3306/test --username  root --password root --table t_user --hive-import --hive-overwrite --hive-table hivetest.t_user --hive-drop-import-delims
 			
 ![导入数据信息显示](./SqoopImage/导入数据信息显示.png)
 
 ![导入成功](./SqoopImage/导入成功.png)
 	
-	·进入hive查询test库下的t_user表
+	进入hive查询test库下的t_user表
 	select * from t_user;
 ![t_user表](./SqoopImage/t_user表.png)
 
