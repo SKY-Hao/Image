@@ -14,7 +14,8 @@
 
 ## 3. sqoop命令
 
-![操作命令帮助](https://github.com/SKY-Hao/Image/tree/master/SqoopImage/SqoopImage/操作命令帮助.png)
+![操作命令帮助](https://github.com/SKY-Hao/Image/raw/master/SqoopImage/lib%E4%B8%8Bjar%E5%8C%85.png)
+		
 
 ## 4.Soop-import
 ### 4.1 sqoop-import将单个表导入HDFS。
