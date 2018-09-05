@@ -9,7 +9,7 @@
 	1.如果从MySQL或者Oracle中导数据需要安装MySQL和Oracle driver。
 	2.解压下载后的jar包放入sqoop目录下的lib下
 	
-![lib下jar包](https://github.com/SKY-Hao/Image/tree/master/SqoopImage/lib下jar包.png)
+![lib下jar包](https://github.com/SKY-Hao/Image/raw/master/SqoopImage/lib%E4%B8%8Bjar%E5%8C%85.png)
 	
 
 ## 3. sqoop命令
