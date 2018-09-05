@@ -129,7 +129,7 @@
 		测试表：test
 ![数据库和表名](https://github.com/SKY-Hao/Image/blob/master/SqoopImage/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%E5%90%8D.png)
 
-![表中数据](https://github.com/SKY-Hao/Image/blob/master/SqoopImage/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%E5%90%8D.png)
+![表中数据](https://raw.githubusercontent.com/SKY-Hao/Image/master/SqoopImage/%E8%A1%A8%E4%B8%AD%E6%95%B0%E6%8D%AE.png)
 
 ### 测试mysql连接
 	查看mysql的数据库
