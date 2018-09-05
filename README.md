@@ -9,12 +9,12 @@
 	1.如果从MySQL或者Oracle中导数据需要安装MySQL和Oracle driver。
 	2.解压下载后的jar包放入sqoop目录下的lib下
 	
-![lib下jar包](./SqoopImage/lib下jar包.png)
+![lib下jar包](https://github.com/SKY-Hao/Image/tree/master/SqoopImage/SqoopImage/lib下jar包.png)
 	
 
 ## 3. sqoop命令
 
-![操作命令帮助](./SqoopImage/操作命令帮助.png)
+![操作命令帮助](https://github.com/SKY-Hao/Image/tree/master/SqoopImage/SqoopImage/操作命令帮助.png)
 
 ## 4.Soop-import
 ### 4.1 sqoop-import将单个表导入HDFS。
