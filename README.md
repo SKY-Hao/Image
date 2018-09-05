@@ -111,10 +111,7 @@
 	Sqoop支持除HDFS和Hive之外的其他导入目标。Sqoop也可以将记录导入HBase中的表：
 	
 	 通过指定--hbase-table，Sqoop导入HBase中的表而不是HDFS中的目录。Sqoop会将数据导入到指定为参数的表中--hbase-table。输入表的每一行将转换为HBase Put操作到输出表的一行。每行的键取自输入的一列。默认情况下，Sqoop将使用拆分列作为行键列。如果未指定，则会识别源表的主键列(前提有源表);也可以手动指定行键列--hbase-row-key。每个输出列将放在同一列组中，必须使用该列组指定--column-family；语句：
-`sqoop import  --connect jdbc:mysql://192.168.1.194/test --username root --password root --query "SELECT * FROM t_user" 
---hbase-table test --hbase-create-table  
---hbase-row-key id --split-by date -m 7 
---column-family password`
+`sqoop import --connect jdbc:mysql://192.168.1.194:3306/test --username root --password root --table test --hbase-table test --column-family id --hbase-row-key id`
 
 
 
