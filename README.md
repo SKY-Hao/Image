@@ -14,7 +14,7 @@
 
 ## 3. sqoop命令
 
-![操作命令帮助](https://github.com/SKY-Hao/Image/raw/master/SqoopImage/lib%E4%B8%8Bjar%E5%8C%85.png)
+![操作命令帮助](https://github.com/SKY-Hao/Image/blob/master/SqoopImage/%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9.png)
 		
 
 ## 4.Soop-import
