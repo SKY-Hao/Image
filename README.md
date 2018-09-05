@@ -127,9 +127,9 @@
 		连接IP：192.168.1.194:3306
 		测试库：test
 		测试表：test
-![数据库和表名](./SqoopImage/数据库和表名.png)
+![数据库和表名](https://github.com/SKY-Hao/Image/blob/master/SqoopImage/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%E5%90%8D.png)
 
-![表中数据](./SqoopImage/表中数据.png)
+![表中数据](https://github.com/SKY-Hao/Image/blob/master/SqoopImage/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%E5%90%8D.png)
 
 ### 测试mysql连接
 	查看mysql的数据库
